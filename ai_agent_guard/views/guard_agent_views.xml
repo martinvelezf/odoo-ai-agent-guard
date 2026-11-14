@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_guard_agent_form" model="ir.ui.view">
+        <field name="name">guard.agent.form</field>
+        <field name="model">guard.agent</field>
+        <field name="arch" type="xml">
+            <form string="Service agent">
+                <header>
+                    <button name="action_create_user" type="object"
+                            string="Create service user" class="btn-primary"
+                            invisible="user_id"/>
+                    <button name="action_generate_key" type="object"
+                            string="Generate API key" class="btn-secondary"
+                            invisible="not user_id"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="sales-ops"/></h1>
+                    </div>
+                    <group>
+                        <group string="Connection">
+                            <field name="odoo_url"/>
+                            <field name="odoo_db"/>
+                            <field name="policy_id"/>
+                        </group>
+                        <group string="Service user">
+                            <field name="user_id"/>
+                            <field name="user_login"/>
+                            <field name="api_key_hint"/>
+                        </group>
+                    </group>
+                    <group string="MCP configuration">
+                        <field name="env_block" nolabel="1" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_guard_agent_tree" model="ir.ui.view">
+        <field name="name">guard.agent.tree</field>
+        <field name="model">guard.agent</field>
+        <field name="arch" type="xml">
+            <tree string="Service agents">
+                <field name="name"/>
+                <field name="user_login"/>
+                <field name="api_key_hint"/>
+                <field name="policy_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_guard_agent" model="ir.actions.act_window">
+        <field name="name">Service agents</field>
+        <field name="res_model">guard.agent</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_guard_agent_key_wizard_form" model="ir.ui.view">
+        <field name="name">guard.agent.key.wizard.form</field>
+        <field name="model">guard.agent.key.wizard</field>
+        <field name="arch" type="xml">
+            <form string="API key">
+                <div class="alert alert-warning" role="alert">
+                    Copy this key now. It is shown only once; Odoo stores only the
+                    last four characters.
+                </div>
+                <group>
+                    <field name="api_key" readonly="1"/>
+                </group>
+                <footer>
+                    <button string="Close" class="btn-primary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_guard_root" name="AI Agent Guard"
+              web_icon="ai_agent_guard,static/description/icon.png"
+              sequence="90"/>
+
+    <menuitem id="menu_guard_policy" name="Policies"
+              parent="menu_guard_root" action="action_guard_policy" sequence="10"/>
+    <menuitem id="menu_guard_agent" name="Service agents"
+              parent="menu_guard_root" action="action_guard_agent" sequence="20"/>
+    <menuitem id="menu_guard_audit" name="Audit logs"
+              parent="menu_guard_root" action="action_guard_audit_log" sequence="30"/>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="module_category_ai_agent_guard" model="ir.module.category">
+        <field name="name">AI Agent Guard</field>
+        <field name="sequence">90</field>
+    </record>
+
+    <record id="group_guard_user" model="res.groups">
+        <field name="name">Viewer</field>
+        <field name="category_id" ref="module_category_ai_agent_guard"/>
+    </record>
+
+    <record id="group_guard_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_ai_agent_guard"/>
+        <field name="implied_ids" eval="[(4, ref('group_guard_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

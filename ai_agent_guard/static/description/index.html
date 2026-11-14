@@ -1,0 +1,63 @@
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">AI Agent Guard — Control &amp; Audit</h2>
+    <h3 class="oe_slogan" style="color:#10b981">Govern and audit the AI agents (MCP clients) that reach your Odoo</h3>
+    <p class="oe_mt32" style="max-width:820px;margin:0 auto;text-align:center">
+      A control panel inside Odoo for teams running the open-source
+      <b>erp-agent-guard</b> policy gateway in front of their AI agents. The
+      gateway runs <b>outside</b> Odoo on purpose — that separation is its trust
+      boundary — and this module does not weaken it. It handles the three things
+      that are painful to do by hand.
+    </p>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+    <h3 class="oe_slogan">Edit the policy, export the exact policy.yaml</h3>
+    <div class="oe_span12" style="max-width:820px;margin:0 auto">
+      <p>Per-agent model and field allowlists, PII masking, quotas and the
+      approval settings — edited in Odoo and exported as the precise
+      <code>policy.yaml</code> the gateway loads. No hand-written YAML, no drift
+      between what you think the policy says and what the gateway enforces.</p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h3 class="oe_slogan">Least-privilege service user &amp; API key</h3>
+    <div class="oe_span12" style="max-width:820px;margin:0 auto">
+      <p>Create the dedicated Odoo user the gateway authenticates as, and mint its
+      API key. The key is shown <b>once</b>; Odoo stores only the last four
+      characters — matching the gateway's rule of never holding the secret. The
+      ready-to-paste MCP <code>env</code> block is generated for you.</p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+    <h3 class="oe_slogan">Verify the hash-chained audit log inside Odoo</h3>
+    <div class="oe_span12" style="max-width:820px;margin:0 auto">
+      <p>Import the gateway's append-only <code>audit.jsonl</code> and verify its
+      hash chain with the <b>identical</b> algorithm the gateway uses. An edited,
+      deleted or reordered line is flagged — including a line edited directly in
+      the database. The verifier ships with a frozen golden-vector test that keeps
+      it byte-for-byte compatible with the gateway.</p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h3 class="oe_slogan">Honest scope</h3>
+    <div class="oe_span12" style="max-width:820px;margin:0 auto">
+      <p>This module is a companion to erp-agent-guard; it does not replace Odoo's
+      own access rights (<code>ir.model.access</code>, record rules, field groups)
+      — those stay your first layer. The audit log is tamper-<i>evident</i>, not
+      tamper-proof: ship it to WORM storage or a SIEM if you need the latter.
+      License LGPL-3.</p>
+    </div>
+  </div>
+</section>

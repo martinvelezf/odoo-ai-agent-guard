@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_guard_policy_form" model="ir.ui.view">
+        <field name="name">guard.policy.form</field>
+        <field name="model">guard.policy</field>
+        <field name="arch" type="xml">
+            <form string="Policy">
+                <header>
+                    <button name="action_download_yaml" type="object"
+                            string="Download policy.yaml" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="policy"/></h1>
+                    </div>
+                    <group>
+                        <group string="Defaults">
+                            <field name="default_mode"/>
+                            <field name="default_max_records"/>
+                            <field name="default_calls_per_minute"/>
+                            <field name="default_writes_per_day"/>
+                        </group>
+                        <group string="Approval &amp; paths">
+                            <field name="approval_required"/>
+                            <field name="approval_secret_env"/>
+                            <field name="approval_ttl_seconds"/>
+                            <field name="audit_path"/>
+                            <field name="proposals_path"/>
+                        </group>
+                    </group>
+                    <group string="Extra deny lists (added to the gateway built-ins)">
+                        <field name="deny_models" placeholder="res.users, hr.*"/>
+                        <field name="deny_fields" placeholder="*_token"/>
+                    </group>
+                    <notebook>
+                        <page string="Agents">
+                            <field name="agent_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="mode"/>
+                                </tree>
+                                <form string="Agent">
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="mode"/>
+                                    </group>
+                                    <field name="model_ids">
+                                        <tree editable="bottom">
+                                            <field name="model_name"/>
+                                            <field name="read_fields"/>
+                                            <field name="write_fields"/>
+                                            <field name="create_fields"/>
+                                            <field name="mask_spec"/>
+                                        </tree>
+                                    </field>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="policy.yaml">
+                            <field name="yaml_preview" widget="ace" options="{'mode': 'yaml'}" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_guard_policy_tree" model="ir.ui.view">
+        <field name="name">guard.policy.tree</field>
+        <field name="model">guard.policy</field>
+        <field name="arch" type="xml">
+            <tree string="Policies">
+                <field name="name"/>
+                <field name="default_mode"/>
+                <field name="approval_required"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_guard_policy" model="ir.actions.act_window">
+        <field name="name">Policies</field>
+        <field name="res_model">guard.policy</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

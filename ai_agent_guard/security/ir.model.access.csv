@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_guard_policy_user,guard.policy.user,model_guard_policy,group_guard_user,1,0,0,0
+access_guard_policy_manager,guard.policy.manager,model_guard_policy,group_guard_manager,1,1,1,1
+access_guard_policy_agent_user,guard.policy.agent.user,model_guard_policy_agent,group_guard_user,1,0,0,0
+access_guard_policy_agent_manager,guard.policy.agent.manager,model_guard_policy_agent,group_guard_manager,1,1,1,1
+access_guard_policy_model_user,guard.policy.model.user,model_guard_policy_model,group_guard_user,1,0,0,0
+access_guard_policy_model_manager,guard.policy.model.manager,model_guard_policy_model,group_guard_manager,1,1,1,1
+access_guard_agent_user,guard.agent.user,model_guard_agent,group_guard_user,1,0,0,0
+access_guard_agent_manager,guard.agent.manager,model_guard_agent,group_guard_manager,1,1,1,1
+access_guard_agent_key_wizard,guard.agent.key.wizard,model_guard_agent_key_wizard,group_guard_manager,1,1,1,1
+access_guard_audit_log_user,guard.audit.log.user,model_guard_audit_log,group_guard_user,1,0,0,0
+access_guard_audit_log_manager,guard.audit.log.manager,model_guard_audit_log,group_guard_manager,1,1,1,1
+access_guard_audit_entry_user,guard.audit.entry.user,model_guard_audit_entry,group_guard_user,1,0,0,0
+access_guard_audit_entry_manager,guard.audit.entry.manager,model_guard_audit_entry,group_guard_manager,1,1,1,1
