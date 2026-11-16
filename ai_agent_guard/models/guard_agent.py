@@ -76,7 +76,10 @@ class GuardAgent(models.Model):
             raise UserError("Create or link a service user first.")
         from dateutil.relativedelta import relativedelta
 
-        apikeys = self.env["res.users.apikeys"].with_user(self.user_id)
+        # The key must belong to the service user (_generate uses env.user), and
+        # sudo lets a manager mint it for the agreed 1-year lifetime instead of
+        # the service user's own (default 1-day) API-key duration cap.
+        apikeys = self.env["res.users.apikeys"].with_user(self.user_id).sudo()
         name = "erp-agent-guard (%s)" % self.name
         expiration = fields.Datetime.now() + relativedelta(years=1)
         try:

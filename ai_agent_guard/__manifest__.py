@@ -1,7 +1,7 @@
 # License: LGPL-3
 {
     "name": "AI Agent Guard — Control & Audit",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "summary": "Govern and audit AI agents (MCP clients) reaching Odoo through "
     "the erp-agent-guard policy gateway",
     "description": """
