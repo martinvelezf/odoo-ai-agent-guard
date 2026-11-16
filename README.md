@@ -3,7 +3,7 @@
 Odoo modules that complement the [erp-agent-guard](https://github.com/martinvelezf/erp-agent-guard)
 policy gateway for AI agents (MCP clients).
 
-Each Odoo version lives on its own branch (Odoo convention). The `17.0` branch
+Each Odoo version lives on its own branch (Odoo convention): `17.0` and `19.0`. This branch
 holds **`ai_agent_guard` — AI Agent Guard: Control & Audit** (LGPL-3): a policy
 editor with `policy.yaml` export, a least-privilege service-user + API-key
 helper, and an in-Odoo verifier for the gateway's hash-chained audit log.

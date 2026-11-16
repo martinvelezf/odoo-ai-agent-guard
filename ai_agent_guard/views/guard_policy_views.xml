@@ -36,23 +36,23 @@
                     <notebook>
                         <page string="Agents">
                             <field name="agent_ids">
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="name"/>
                                     <field name="mode"/>
-                                </tree>
+                                </list>
                                 <form string="Agent">
                                     <group>
                                         <field name="name"/>
                                         <field name="mode"/>
                                     </group>
                                     <field name="model_ids">
-                                        <tree editable="bottom">
+                                        <list editable="bottom">
                                             <field name="model_name"/>
                                             <field name="read_fields"/>
                                             <field name="write_fields"/>
                                             <field name="create_fields"/>
                                             <field name="mask_spec"/>
-                                        </tree>
+                                        </list>
                                     </field>
                                 </form>
                             </field>
@@ -66,21 +66,21 @@
         </field>
     </record>
 
-    <record id="view_guard_policy_tree" model="ir.ui.view">
-        <field name="name">guard.policy.tree</field>
+    <record id="view_guard_policy_list" model="ir.ui.view">
+        <field name="name">guard.policy.list</field>
         <field name="model">guard.policy</field>
         <field name="arch" type="xml">
-            <tree string="Policies">
+            <list string="Policies">
                 <field name="name"/>
                 <field name="default_mode"/>
                 <field name="approval_required"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_guard_policy" model="ir.actions.act_window">
         <field name="name">Policies</field>
         <field name="res_model">guard.policy</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

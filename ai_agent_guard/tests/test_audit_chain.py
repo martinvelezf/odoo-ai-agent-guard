@@ -7,7 +7,7 @@ own hashing; if Odoo ever drifts from it, verification of real logs would
 silently pass bad data, so this test is the guard on that contract.
 """
 
-from odoo.tests import TransientCase, tagged
+from odoo.tests import TransactionCase, tagged
 
 from ..models.audit_chain import GENESIS, entry_hash, verify_lines
 
@@ -30,7 +30,7 @@ HEAD = "17ecdb17d8c04c4edce8ba017a948c4f893af325192337c4d229797a9f25024b"
 
 
 @tagged("post_install", "-at_install")
-class TestAuditChain(TransientCase):
+class TestAuditChain(TransactionCase):
     def test_golden_vector_intact(self):
         ok, n, msg, bad = verify_lines([LINE1, LINE2])
         self.assertTrue(ok)

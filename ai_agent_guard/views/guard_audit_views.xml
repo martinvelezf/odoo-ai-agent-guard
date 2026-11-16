@@ -30,7 +30,7 @@
                         </group>
                     </group>
                     <field name="entry_ids">
-                        <tree decoration-danger="not valid" decoration-info="genesis">
+                        <list decoration-danger="not valid" decoration-info="genesis">
                             <field name="line_no"/>
                             <field name="event"/>
                             <field name="agent"/>
@@ -39,30 +39,30 @@
                             <field name="hash"/>
                             <field name="valid"/>
                             <field name="genesis" column_invisible="1"/>
-                        </tree>
+                        </list>
                     </field>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <record id="view_guard_audit_log_tree" model="ir.ui.view">
-        <field name="name">guard.audit.log.tree</field>
+    <record id="view_guard_audit_log_list" model="ir.ui.view">
+        <field name="name">guard.audit.log.list</field>
         <field name="model">guard.audit.log</field>
         <field name="arch" type="xml">
-            <tree string="Audit logs" decoration-danger="chain_state == 'broken'"
+            <list string="Audit logs" decoration-danger="chain_state == 'broken'"
                   decoration-success="chain_state == 'ok'">
                 <field name="name"/>
                 <field name="entry_count"/>
                 <field name="chain_state"/>
                 <field name="chain_message"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_guard_audit_log" model="ir.actions.act_window">
         <field name="name">Audit logs</field>
         <field name="res_model">guard.audit.log</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>
